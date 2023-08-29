@@ -2,25 +2,44 @@
 //  ContentView.swift
 //  MVVM
 //
-//  Created by iMyanmarHouse on 8/29/23.
+//  Created by ThawDeZin on 8/29/23.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel: CounterViewModel
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Count: \(viewModel.counter.count)")
+                .font(.largeTitle)
+                .padding()
+
+            HStack {
+                Button("Increase") {
+                    viewModel.increaseCount()
+                }
+                .padding()
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+
+                Button("Decrease") {
+                    viewModel.decreaseCount()
+                }
+                .padding()
+                .background(Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: CounterViewModel())
     }
 }

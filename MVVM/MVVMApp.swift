@@ -2,7 +2,7 @@
 //  MVVMApp.swift
 //  MVVM
 //
-//  Created by iMyanmarHouse on 8/29/23.
+//  Created by ThawDeZin on 8/29/23.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct MVVMApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: CounterViewModel())
         }
     }
 }
